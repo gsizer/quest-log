@@ -1,0 +1,576 @@
+[gd_scene load_steps=41 format=3 uid="uid://cieat0nbn4s6x"]
+
+[ext_resource type="Script" path="res://quest_log.gd" id="1_fit5c"]
+[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="2_r0uvc"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="3_xtsqh"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="4_brw43"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="5_0dbkp"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="6_qo422"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="7_3is1n"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="8_vpght"]
+[ext_resource type="Texture2D" uid="uid://g8syg85mt6h3" path="res://addons/markdownlabel/icon.svg" id="9_mywhv"]
+[ext_resource type="Texture2D" uid="uid://caxidjukby8b4" path="res://icon.svg" id="10_73s3e"]
+
+[sub_resource type="Resource" id="Resource_thbv6"]
+resource_local_to_scene = true
+script = ExtResource("3_xtsqh")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_5e425"]
+resource_local_to_scene = true
+script = ExtResource("4_brw43")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_5hgyh"]
+resource_local_to_scene = true
+script = ExtResource("5_0dbkp")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_mdykn"]
+resource_local_to_scene = true
+script = ExtResource("6_qo422")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_v6i6s"]
+resource_local_to_scene = true
+script = ExtResource("7_3is1n")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_lc11t"]
+resource_local_to_scene = true
+script = ExtResource("8_vpght")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_ujahh"]
+resource_local_to_scene = true
+script = ExtResource("3_xtsqh")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_papgm"]
+resource_local_to_scene = true
+script = ExtResource("4_brw43")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_d53b5"]
+resource_local_to_scene = true
+script = ExtResource("5_0dbkp")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_3jayq"]
+resource_local_to_scene = true
+script = ExtResource("6_qo422")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_bci6y"]
+resource_local_to_scene = true
+script = ExtResource("7_3is1n")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_0u1xl"]
+resource_local_to_scene = true
+script = ExtResource("8_vpght")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_egi35"]
+resource_local_to_scene = true
+script = ExtResource("3_xtsqh")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_qjskk"]
+resource_local_to_scene = true
+script = ExtResource("4_brw43")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_ajnt4"]
+resource_local_to_scene = true
+script = ExtResource("5_0dbkp")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_tq2eu"]
+resource_local_to_scene = true
+script = ExtResource("6_qo422")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_rqevx"]
+resource_local_to_scene = true
+script = ExtResource("7_3is1n")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_183a1"]
+resource_local_to_scene = true
+script = ExtResource("8_vpght")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_orpm7"]
+resource_local_to_scene = true
+script = ExtResource("3_xtsqh")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_04p6u"]
+resource_local_to_scene = true
+script = ExtResource("4_brw43")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_vplgf"]
+resource_local_to_scene = true
+script = ExtResource("5_0dbkp")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_b8aju"]
+resource_local_to_scene = true
+script = ExtResource("6_qo422")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_f01si"]
+resource_local_to_scene = true
+script = ExtResource("7_3is1n")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_p57w7"]
+resource_local_to_scene = true
+script = ExtResource("8_vpght")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_s30yd"]
+resource_local_to_scene = true
+script = ExtResource("3_xtsqh")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_qfp26"]
+resource_local_to_scene = true
+script = ExtResource("4_brw43")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_3lba3"]
+resource_local_to_scene = true
+script = ExtResource("5_0dbkp")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_tsd8i"]
+resource_local_to_scene = true
+script = ExtResource("6_qo422")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_e5wk1"]
+resource_local_to_scene = true
+script = ExtResource("7_3is1n")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_ujp5e"]
+resource_local_to_scene = true
+script = ExtResource("8_vpght")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[node name="QuestLog" type="Control" node_paths=PackedStringArray("listTasklist", "leTitle", "leBrief", "optTasktype", "teDescription")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_fit5c")
+listTasklist = NodePath("MarginContainer/HSplitContainer/panelTasklist/vbTasklist/itemlistTasklist")
+leTitle = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle/leTitle")
+leBrief = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief/leBrief")
+optTasktype = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype/optTasktype")
+teDescription = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_constants/minimum_grab_thickness = 5
+theme_override_constants/autohide = 0
+split_offset = -150
+
+[node name="panelTasklist" type="Panel" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="vbTasklist" type="VBoxContainer" parent="MarginContainer/HSplitContainer/panelTasklist"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="hbCmdTasklist" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="btnSaveLogbook" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist"]
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+text = "Save"
+
+[node name="btnLoadLogbook" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist"]
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+text = "Load"
+
+[node name="btnAddTask" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist"]
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+text = "Add"
+
+[node name="btnDelTask" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist"]
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+text = "Remove"
+
+[node name="btnDupTask" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist"]
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+text = "Dupe"
+
+[node name="mdTasklist" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Tasklist[/b]"
+script = ExtResource("2_r0uvc")
+markdown_text = "[b]Tasklist[/b]"
+h1 = SubResource("Resource_thbv6")
+h2 = SubResource("Resource_5e425")
+h3 = SubResource("Resource_5hgyh")
+h4 = SubResource("Resource_mdykn")
+h5 = SubResource("Resource_v6i6s")
+h6 = SubResource("Resource_lc11t")
+
+[node name="itemlistTasklist" type="ItemList" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+allow_reselect = true
+allow_rmb_select = true
+auto_height = true
+item_count = 4
+item_0/text = "Markdown Labels are nice."
+item_0/icon = ExtResource("9_mywhv")
+item_1/text = "A selectable but disabled"
+item_1/disabled = true
+item_2/text = "Not selectable or disabled"
+item_2/selectable = false
+item_3/text = "Another Selectable enabled item"
+item_3/icon = ExtResource("10_73s3e")
+
+[node name="panelDetails" type="Panel" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="vbDetails" type="VBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="hbTitle" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="mdTitleLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Title[/b]	"
+scroll_active = false
+script = ExtResource("2_r0uvc")
+markdown_text = "[b]Title[/b]	"
+h1 = SubResource("Resource_ujahh")
+h2 = SubResource("Resource_papgm")
+h3 = SubResource("Resource_d53b5")
+h4 = SubResource("Resource_3jayq")
+h5 = SubResource("Resource_bci6y")
+h6 = SubResource("Resource_0u1xl")
+
+[node name="leTitle" type="LineEdit" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="hbBrief" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="mdBriefLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Brief[/b]"
+scroll_active = false
+script = ExtResource("2_r0uvc")
+markdown_text = "[b]Brief[/b]"
+h1 = SubResource("Resource_ujahh")
+h2 = SubResource("Resource_papgm")
+h3 = SubResource("Resource_d53b5")
+h4 = SubResource("Resource_3jayq")
+h5 = SubResource("Resource_bci6y")
+h6 = SubResource("Resource_0u1xl")
+
+[node name="leBrief" type="LineEdit" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="hbTasktype" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="mdTasktypeLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]TaskType[/b]	"
+scroll_active = false
+script = ExtResource("2_r0uvc")
+markdown_text = "[b]TaskType[/b]	"
+h1 = SubResource("Resource_egi35")
+h2 = SubResource("Resource_qjskk")
+h3 = SubResource("Resource_ajnt4")
+h4 = SubResource("Resource_tq2eu")
+h5 = SubResource("Resource_rqevx")
+h6 = SubResource("Resource_183a1")
+
+[node name="optTasktype" type="OptionButton" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 3
+popup/item_0/text = "Battle"
+popup/item_0/icon = ExtResource("9_mywhv")
+popup/item_1/text = "Relocate"
+popup/item_1/icon = ExtResource("9_mywhv")
+popup/item_1/id = 1
+popup/item_2/text = "Transport"
+popup/item_2/icon = ExtResource("9_mywhv")
+popup/item_2/id = 2
+
+[node name="vbDescription" type="VBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="mdDescLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Description[/b]	"
+scroll_active = false
+script = ExtResource("2_r0uvc")
+markdown_text = "[b]Description[/b]	"
+h1 = SubResource("Resource_orpm7")
+h2 = SubResource("Resource_04p6u")
+h3 = SubResource("Resource_vplgf")
+h4 = SubResource("Resource_b8aju")
+h5 = SubResource("Resource_f01si")
+h6 = SubResource("Resource_p57w7")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+theme_override_constants/minimum_grab_thickness = 5
+theme_override_constants/autohide = 0
+
+[node name="mdDescription" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+bbcode_enabled = true
+scroll_following = true
+tab_size = 2
+context_menu_enabled = true
+threaded = true
+selection_enabled = true
+script = ExtResource("2_r0uvc")
+h1 = SubResource("Resource_s30yd")
+h2 = SubResource("Resource_qfp26")
+h3 = SubResource("Resource_3lba3")
+h4 = SubResource("Resource_tsd8i")
+h5 = SubResource("Resource_e5wk1")
+h6 = SubResource("Resource_ujp5e")
+
+[node name="teDescription" type="TextEdit" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter Markdown text here to see it rendered in the preview panel."
+wrap_mode = 1
+
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnSaveLogbook" to="." method="_on_btn_save_logbook_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnLoadLogbook" to="." method="_on_btn_load_logbook_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnAddTask" to="." method="_on_btn_add_task_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnDelTask" to="." method="_on_btn_del_task_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnDupTask" to="." method="_on_btn_dup_task_pressed"]
+[connection signal="empty_clicked" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/itemlistTasklist" to="." method="_on_itemlist_tasklist_empty_clicked"]
+[connection signal="item_selected" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/itemlistTasklist" to="." method="_on_itemlist_tasklist_item_selected"]
+[connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_text_changed"]
