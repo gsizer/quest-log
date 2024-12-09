@@ -1,0 +1,6 @@
+[submodule "Object-Generator"]
+	path = Object-Generator
+	url = https://github.com/gsizer/Object-Generator.git
+[submodule "Roller"]
+	path = Roller
+	url = https://github.com/gsizer/DiceRoller.git
