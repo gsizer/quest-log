@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cieat0nbn4s6x"]
+[gd_scene load_steps=40 format=3 uid="uid://cieat0nbn4s6x"]
 
 [ext_resource type="Script" path="res://quest_log.gd" id="1_fit5c"]
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="2_r0uvc"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="7_3is1n"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="8_vpght"]
 [ext_resource type="Texture2D" uid="uid://g8syg85mt6h3" path="res://addons/markdownlabel/icon.svg" id="9_mywhv"]
-[ext_resource type="Texture2D" uid="uid://caxidjukby8b4" path="res://icon.svg" id="10_73s3e"]
 
 [sub_resource type="Resource" id="Resource_thbv6"]
 resource_local_to_scene = true
@@ -311,7 +310,7 @@ is_underlined = false
 override_font_color = false
 font_color = Color(1, 1, 1, 1)
 
-[node name="QuestLog" type="Control" node_paths=PackedStringArray("listTasklist", "leTitle", "leBrief", "optTasktype", "teDescription")]
+[node name="QuestLog" type="Control" node_paths=PackedStringArray("listTasklist", "leTitle", "leBrief", "optTasktype", "mdDescription", "teDescription")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -325,6 +324,7 @@ listTasklist = NodePath("MarginContainer/HSplitContainer/panelTasklist/vbTasklis
 leTitle = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle/leTitle")
 leBrief = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief/leBrief")
 optTasktype = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype/optTasktype")
+mdDescription = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/mdDescription")
 teDescription = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -410,15 +410,6 @@ size_flags_vertical = 3
 allow_reselect = true
 allow_rmb_select = true
 auto_height = true
-item_count = 4
-item_0/text = "Markdown Labels are nice."
-item_0/icon = ExtResource("9_mywhv")
-item_1/text = "A selectable but disabled"
-item_1/disabled = true
-item_2/text = "Not selectable or disabled"
-item_2/selectable = false
-item_3/text = "Another Selectable enabled item"
-item_3/icon = ExtResource("10_73s3e")
 
 [node name="panelDetails" type="Panel" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2
@@ -573,4 +564,7 @@ wrap_mode = 1
 [connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnDupTask" to="." method="_on_btn_dup_task_pressed"]
 [connection signal="empty_clicked" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/itemlistTasklist" to="." method="_on_itemlist_tasklist_empty_clicked"]
 [connection signal="item_selected" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/itemlistTasklist" to="." method="_on_itemlist_tasklist_item_selected"]
+[connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle/leTitle" to="." method="_on_le_title_text_changed"]
+[connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief/leBrief" to="." method="_on_le_brief_text_changed"]
+[connection signal="item_selected" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype/optTasktype" to="." method="_on_opt_tasktype_item_selected"]
 [connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_text_changed"]

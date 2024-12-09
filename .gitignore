@@ -1,8 +1,8 @@
 # Godot 4+ specific ignores
-.godot/
+/.godot/
 
 # Godot-specific ignores
-.import/
+/.import/
 export.cfg
 export_presets.cfg
 
@@ -10,6 +10,10 @@ export_presets.cfg
 *.translation
 
 # Mono-specific ignores
-.mono/
+/.mono/
 data_*/
 mono_crash.*.json
+
+# Imported Modules
+/Object-Generator/
+/DiceRoller/
