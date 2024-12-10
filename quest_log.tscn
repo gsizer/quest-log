@@ -360,6 +360,20 @@ grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
+[node name="mdQuestLog" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "Quest Book"
+script = ExtResource("2_r0uvc")
+markdown_text = "Quest Book"
+h1 = SubResource("Resource_thbv6")
+h2 = SubResource("Resource_5e425")
+h3 = SubResource("Resource_5hgyh")
+h4 = SubResource("Resource_mdykn")
+h5 = SubResource("Resource_v6i6s")
+h6 = SubResource("Resource_lc11t")
+
 [node name="hbCmdTasklist" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -374,34 +388,33 @@ custom_minimum_size = Vector2(75, 30)
 layout_mode = 2
 text = "Load"
 
-[node name="btnAddTask" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist"]
-custom_minimum_size = Vector2(75, 30)
-layout_mode = 2
-text = "Add"
-
-[node name="btnDelTask" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist"]
-custom_minimum_size = Vector2(75, 30)
-layout_mode = 2
-text = "Remove"
-
-[node name="btnDupTask" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist"]
-custom_minimum_size = Vector2(75, 30)
-layout_mode = 2
-text = "Dupe"
-
 [node name="mdTasklist" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 bbcode_enabled = true
-text = "[b]Tasklist[/b]"
+text = "Quests"
 script = ExtResource("2_r0uvc")
-markdown_text = "[b]Tasklist[/b]"
+markdown_text = "Quests"
 h1 = SubResource("Resource_thbv6")
 h2 = SubResource("Resource_5e425")
 h3 = SubResource("Resource_5hgyh")
 h4 = SubResource("Resource_mdykn")
 h5 = SubResource("Resource_v6i6s")
 h6 = SubResource("Resource_lc11t")
+
+[node name="hbCmdTasklist2" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="btnAddTask" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist2"]
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+text = "Add"
+
+[node name="btnDelTask" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist2"]
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+text = "Remove"
 
 [node name="itemlistTasklist" type="ItemList" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
 layout_mode = 2
@@ -433,10 +446,10 @@ theme_override_constants/separation = 5
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 bbcode_enabled = true
-text = "[b]Title[/b]	"
+text = "Name"
 scroll_active = false
 script = ExtResource("2_r0uvc")
-markdown_text = "[b]Title[/b]	"
+markdown_text = "Name"
 h1 = SubResource("Resource_ujahh")
 h2 = SubResource("Resource_papgm")
 h3 = SubResource("Resource_d53b5")
@@ -456,10 +469,10 @@ theme_override_constants/separation = 5
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 bbcode_enabled = true
-text = "[b]Brief[/b]"
+text = "Summary"
 scroll_active = false
 script = ExtResource("2_r0uvc")
-markdown_text = "[b]Brief[/b]"
+markdown_text = "Summary"
 h1 = SubResource("Resource_ujahh")
 h2 = SubResource("Resource_papgm")
 h3 = SubResource("Resource_d53b5")
@@ -479,10 +492,10 @@ theme_override_constants/separation = 5
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 bbcode_enabled = true
-text = "[b]TaskType[/b]	"
+text = "Task Type"
 scroll_active = false
 script = ExtResource("2_r0uvc")
-markdown_text = "[b]TaskType[/b]	"
+markdown_text = "Task Type"
 h1 = SubResource("Resource_egi35")
 h2 = SubResource("Resource_qjskk")
 h3 = SubResource("Resource_ajnt4")
@@ -494,15 +507,12 @@ h6 = SubResource("Resource_183a1")
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
-item_count = 3
+item_count = 2
 popup/item_0/text = "Battle"
 popup/item_0/icon = ExtResource("9_mywhv")
 popup/item_1/text = "Relocate"
 popup/item_1/icon = ExtResource("9_mywhv")
 popup/item_1/id = 1
-popup/item_2/text = "Transport"
-popup/item_2/icon = ExtResource("9_mywhv")
-popup/item_2/id = 2
 
 [node name="vbDescription" type="VBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails"]
 layout_mode = 2
@@ -513,10 +523,10 @@ theme_override_constants/separation = 5
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 bbcode_enabled = true
-text = "[b]Description[/b]	"
+text = "Description"
 scroll_active = false
 script = ExtResource("2_r0uvc")
-markdown_text = "[b]Description[/b]	"
+markdown_text = "Description"
 h1 = SubResource("Resource_orpm7")
 h2 = SubResource("Resource_04p6u")
 h3 = SubResource("Resource_vplgf")
@@ -557,14 +567,31 @@ size_flags_horizontal = 3
 placeholder_text = "Enter Markdown text here to see it rendered in the preview panel."
 wrap_mode = 1
 
+[node name="hbCmdTask" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails"]
+layout_mode = 2
+alignment = 1
+
+[node name="btnTaskUpdate" type="Button" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbCmdTask"]
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+text = "Update"
+
+[node name="btnTaskReset" type="Button" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbCmdTask"]
+custom_minimum_size = Vector2(75, 30)
+layout_mode = 2
+text = "Reset"
+
 [connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnSaveLogbook" to="." method="_on_btn_save_logbook_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnLoadLogbook" to="." method="_on_btn_load_logbook_pressed"]
-[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnAddTask" to="." method="_on_btn_add_task_pressed"]
-[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnDelTask" to="." method="_on_btn_del_task_pressed"]
-[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnDupTask" to="." method="_on_btn_dup_task_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist2/btnAddTask" to="." method="_on_btn_add_task_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist2/btnDelTask" to="." method="_on_btn_del_task_pressed"]
 [connection signal="empty_clicked" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/itemlistTasklist" to="." method="_on_itemlist_tasklist_empty_clicked"]
 [connection signal="item_selected" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/itemlistTasklist" to="." method="_on_itemlist_tasklist_item_selected"]
 [connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle/leTitle" to="." method="_on_le_title_text_changed"]
+[connection signal="text_submitted" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle/leTitle" to="." method="_on_le_title_text_submitted"]
 [connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief/leBrief" to="." method="_on_le_brief_text_changed"]
+[connection signal="text_submitted" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief/leBrief" to="." method="_on_le_brief_text_submitted"]
 [connection signal="item_selected" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype/optTasktype" to="." method="_on_opt_tasktype_item_selected"]
 [connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_text_changed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbCmdTask/btnTaskUpdate" to="." method="_on_btn_task_update_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbCmdTask/btnTaskReset" to="." method="_on_btn_task_reset_pressed"]
