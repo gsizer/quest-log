@@ -66,10 +66,10 @@ func _on_btn_del_task_pressed() -> void:
 func _on_itemlist_tasklist_item_selected(index: int) -> void:
 	ActiveTask = Logbook.get(index)
 	# need to change active task to selection from logbook
-	leTitle.text = ActiveTask.get("Name")
-	leBrief.text = ActiveTask.get("Summary")
-	optTasktype.select( ActiveTask.get("Tasktype") )
-	teDescription.text = ActiveTask.get("Description")
+	leTitle.text = ActiveTask["Name"]
+	leBrief.text = ActiveTask["Summary"]
+	optTasktype.select( ActiveTask["Tasktype"] )
+	teDescription.text = ActiveTask["Description"]
 
 func _on_itemlist_tasklist_empty_clicked(_at_position: Vector2, _mouse_button_index: int) -> void:
 	_activeIdx = -1
@@ -78,13 +78,13 @@ func _on_le_title_text_changed(new_text):
 	taskName = new_text
 
 func _on_le_title_text_submitted(new_text):
-	ActiveTask.get_or_add("Name", new_text)
+	ActiveTask["Name"] = taskName
 
 func _on_le_brief_text_changed(new_text):
 	taskSummary = new_text
 
 func _on_le_brief_text_submitted(new_text):
-	ActiveTask.get_or_add("Summary", new_text)
+	ActiveTask["Summary"] = taskSummary
 
 func _on_opt_tasktype_item_selected(index):
 	taskType = index
