@@ -592,6 +592,7 @@ text = "Reset"
 [connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief/leBrief" to="." method="_on_le_brief_text_changed"]
 [connection signal="text_submitted" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief/leBrief" to="." method="_on_le_brief_text_submitted"]
 [connection signal="item_selected" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype/optTasktype" to="." method="_on_opt_tasktype_item_selected"]
+[connection signal="caret_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_caret_changed"]
 [connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_text_changed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbCmdTask/btnTaskUpdate" to="." method="_on_btn_task_update_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbCmdTask/btnTaskReset" to="." method="_on_btn_task_reset_pressed"]
