@@ -65,12 +65,15 @@ func _on_btn_del_task_pressed() -> void:
 	optTasktype.select( 0 )
 	teDescription.text = ""
 	# drop the data from memory
-	listTasklist.remove_item(_activeIdx)
+	listTasklist.remove_item( _activeIdx )
+	Logbook.erase( _activeIdx )
 	ActiveTask.clear()
 	_activeIdx = -1
 
 func _on_itemlist_tasklist_item_selected(index: int) -> void:
-	ActiveTask = Logbook.get(index)
+	print_debug(index)
+	_activeIdx = index
+	ActiveTask = Logbook[_activeIdx]
 	# need to change active task to selection from logbook
 	leTitle.text = ActiveTask["Name"]
 	leBrief.text = ActiveTask["Summary"]
@@ -103,6 +106,10 @@ func _on_te_description_text_changed() -> void:
 func _on_te_description_caret_changed():
 	taskDescription = teDescription.text
 
+func _on_te_description_text_set():
+	taskDescription = teDescription.text
+	mdDescription.markdown_text = taskDescription
+
 func _on_btn_task_update_pressed():
 	# update UI
 	listTasklist.set_item_text(_activeIdx, taskName)
@@ -124,9 +131,6 @@ func _on_btn_task_reset_pressed():
 	optTasktype.select( ActiveTask["Tasktype"] )
 	teDescription.text = ActiveTask["Description"]
 
-func exit_app()->void:
-	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
-
 func load_questbook()->void:
 	# open directory and read questbook
 	var dir := DirAccess.open("user://")
@@ -134,14 +138,16 @@ func load_questbook()->void:
 		_file_mode = FileAccess.READ_WRITE
 	else:
 		_file_mode = FileAccess.WRITE_READ
-	var fin := FileAccess.open(_book_file, _file_mode)
-	print_debug(fin, Logbook)
+	var fIn := FileAccess.open(_book_file, _file_mode)
+	while fIn.get_position() < fIn.get_length():
+	# Read data
+		var vIn = fIn.get_var() as Dictionary
+		Logbook = vIn.duplicate()
+		for _q in Logbook:
+			listTasklist.add_item(Logbook[_q]["Name"] )
 
 func save_questbook()->void:
 	_file_mode = FileAccess.WRITE
 	var fout := FileAccess.open(_book_file, _file_mode)
-	#var _logbook = JSON.stringify(Logbook)
-	for _quest in Logbook as Dictionary:
-		var _out = JSON.stringify(_quest)
-		fout.store_string(_out)
+	fout.store_var( Logbook )
 	fout.close()

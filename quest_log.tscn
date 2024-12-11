@@ -320,7 +320,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_fit5c")
-listTasklist = NodePath("MarginContainer/HSplitContainer/panelTasklist/vbTasklist/itemlistTasklist")
+listTasklist = NodePath("MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/ScrollContainer/itemlistTasklist")
 leTitle = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle/leTitle")
 leBrief = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief/leBrief")
 optTasktype = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype/optTasktype")
@@ -350,19 +350,31 @@ split_offset = -150
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="vbTasklist" type="VBoxContainer" parent="MarginContainer/HSplitContainer/panelTasklist"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/panelTasklist"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="vbTasklist" type="VBoxContainer" parent="MarginContainer/HSplitContainer/panelTasklist/MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
-[node name="mdQuestLog" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
+[node name="hbCmdTasklist" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+
+[node name="mdQuestLog" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/hbCmdTasklist"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
 bbcode_enabled = true
 text = "Quest Book"
 script = ExtResource("2_r0uvc")
@@ -374,27 +386,32 @@ h4 = SubResource("Resource_mdykn")
 h5 = SubResource("Resource_v6i6s")
 h6 = SubResource("Resource_lc11t")
 
-[node name="hbCmdTasklist" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-
-[node name="btnSaveLogbook" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist"]
+[node name="btnSaveLogbook" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/hbCmdTasklist"]
 custom_minimum_size = Vector2(75, 30)
 layout_mode = 2
 text = "Save"
 
-[node name="btnLoadLogbook" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist"]
+[node name="btnLoadLogbook" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/hbCmdTasklist"]
 custom_minimum_size = Vector2(75, 30)
 layout_mode = 2
 text = "Load"
 
-[node name="mdTasklist" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
+[node name="hbCmdTasklist2" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+
+[node name="mdTasklist" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/hbCmdTasklist2"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
 bbcode_enabled = true
-text = "Quests"
+text = "[ul]
+ Quests
+[/ul]"
 script = ExtResource("2_r0uvc")
-markdown_text = "Quests"
+markdown_text = "[ul]
+ Quests
+[/ul]"
 h1 = SubResource("Resource_thbv6")
 h2 = SubResource("Resource_5e425")
 h3 = SubResource("Resource_5hgyh")
@@ -402,27 +419,25 @@ h4 = SubResource("Resource_mdykn")
 h5 = SubResource("Resource_v6i6s")
 h6 = SubResource("Resource_lc11t")
 
-[node name="hbCmdTasklist2" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-
-[node name="btnAddTask" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist2"]
+[node name="btnAddTask" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/hbCmdTasklist2"]
 custom_minimum_size = Vector2(75, 30)
 layout_mode = 2
 text = "Add"
 
-[node name="btnDelTask" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist2"]
+[node name="btnDelTask" type="Button" parent="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/hbCmdTasklist2"]
 custom_minimum_size = Vector2(75, 30)
 layout_mode = 2
 text = "Remove"
 
-[node name="itemlistTasklist" type="ItemList" parent="MarginContainer/HSplitContainer/panelTasklist/vbTasklist"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="itemlistTasklist" type="ItemList" parent="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 allow_reselect = true
-allow_rmb_select = true
-auto_height = true
 
 [node name="panelDetails" type="Panel" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2
@@ -581,12 +596,12 @@ custom_minimum_size = Vector2(75, 30)
 layout_mode = 2
 text = "Reset"
 
-[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnSaveLogbook" to="." method="_on_btn_save_logbook_pressed"]
-[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist/btnLoadLogbook" to="." method="_on_btn_load_logbook_pressed"]
-[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist2/btnAddTask" to="." method="_on_btn_add_task_pressed"]
-[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/hbCmdTasklist2/btnDelTask" to="." method="_on_btn_del_task_pressed"]
-[connection signal="empty_clicked" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/itemlistTasklist" to="." method="_on_itemlist_tasklist_empty_clicked"]
-[connection signal="item_selected" from="MarginContainer/HSplitContainer/panelTasklist/vbTasklist/itemlistTasklist" to="." method="_on_itemlist_tasklist_item_selected"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/hbCmdTasklist/btnSaveLogbook" to="." method="_on_btn_save_logbook_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/hbCmdTasklist/btnLoadLogbook" to="." method="_on_btn_load_logbook_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/hbCmdTasklist2/btnAddTask" to="." method="_on_btn_add_task_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/hbCmdTasklist2/btnDelTask" to="." method="_on_btn_del_task_pressed"]
+[connection signal="empty_clicked" from="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/ScrollContainer/itemlistTasklist" to="." method="_on_itemlist_tasklist_empty_clicked"]
+[connection signal="item_selected" from="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/ScrollContainer/itemlistTasklist" to="." method="_on_itemlist_tasklist_item_selected"]
 [connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle/leTitle" to="." method="_on_le_title_text_changed"]
 [connection signal="text_submitted" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle/leTitle" to="." method="_on_le_title_text_submitted"]
 [connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief/leBrief" to="." method="_on_le_brief_text_changed"]
@@ -594,5 +609,6 @@ text = "Reset"
 [connection signal="item_selected" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype/optTasktype" to="." method="_on_opt_tasktype_item_selected"]
 [connection signal="caret_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_caret_changed"]
 [connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_text_changed"]
+[connection signal="text_set" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_text_set"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbCmdTask/btnTaskUpdate" to="." method="_on_btn_task_update_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbCmdTask/btnTaskReset" to="." method="_on_btn_task_reset_pressed"]
