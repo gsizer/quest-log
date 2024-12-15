@@ -1,24 +1,56 @@
 extends Control
 
-# This enumerations has the same values as the $optTasktype.items
+# Item selections
+const Colors : Array[Color] = [
+	Color.WEB_GRAY, Color.YELLOW, Color.GREEN, Color.BLUE,
+	Color.REBECCA_PURPLE, Color.DARK_RED, Color.ORANGE ]
+const Rarities : Array[String] = [
+	"Common", "Uncommon", "Rare", "Epic", "Legendary", "Artifact", "Celestial"]
+const Categories : Array[String] = [
+	"Armor", "Food", "Storage", "Tool", "Weapon", "System" ]
+const DamageTypes : Array[String] = ["Blunt", "Energy", "Piercing", "Slashing"]
 
+# required item
+var reqItmSel:Array[int]=[0,0,0]
+var reqItmDmg:int=0
+var reqItmDef:int=0
+var reqItmSz:int=0
+var reqItmDesc:String=""
+
+# reward item
+var rewItmSel:Array[int]=[0,0,0]
+var rewItmDmg:int=0
+var rewItmDef:int=0
+var rewItmSz:int=0
+var rewItmDesc:String=""
+
+# This enumeration has the same values as the $optTasktype.items
 enum Tasktype { Battle=0, Relocate=1 }
 
-var _book_file : String = "user://logbook.json"
+# internal variables
+var _book_file : String = "user://logbook.dat"
 var _file_mode : int = 0
 var _activeIdx : int = -1
+
+# the task being edited
 var ActiveTask : Dictionary
 var taskName : String = ""
 var taskSummary : String = ""
 var taskType : int = 0
+var taskRequiredItem : Dictionary = {}
+var taskRewardItem : Dictionary = {}
+var taskRewardXP : int = 0
+var taskRewardCash : int = 0
 var taskDescription : String = ""
 
-#@export var LogbookName : String = "logbook.json"
-@export var Logbook : Dictionary = {}
+# interface items
+@export var Logbook : Array[Dictionary] = []
 @export var listTasklist : ItemList
 @export var leTitle : LineEdit
 @export var leBrief : LineEdit
 @export var optTasktype : OptionButton
+@export var leXP : LineEdit
+@export var leCash : LineEdit
 @export var mdDescription : MarkdownLabel
 @export var teDescription : TextEdit
 
@@ -28,6 +60,9 @@ var NewTask : Dictionary = {
 	"Description":"Use the input to move your character to the designated position.",
 	"Tasktype":Tasktype.Relocate,
 	"RewardXP":1,
+	"RewardCash":0,
+	"RewardItem":null,
+	"RequiredItem":null,
 	"Chained":false,
 	"PreviousChainTask":null,
 	"NextChainTask":null,
@@ -38,6 +73,7 @@ var NewTask : Dictionary = {
 }
 
 func _notification(what: int) -> void:
+	# autosave on close of application
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save_questbook()
 
@@ -51,7 +87,7 @@ func _on_btn_add_task_pressed() -> void:
 	# copy template dictionary
 	ActiveTask = NewTask.duplicate()
 	# use the logbook size() as the index for the new task
-	Logbook[ Logbook.size() ] = ActiveTask
+	Logbook.push_back(ActiveTask)
 	listTasklist.add_item( ActiveTask["Name"] )
 	# store the active index
 	_activeIdx = listTasklist.get_child_count()
@@ -71,13 +107,15 @@ func _on_btn_del_task_pressed() -> void:
 	_activeIdx = -1
 
 func _on_itemlist_tasklist_item_selected(index: int) -> void:
-	print_debug(index)
 	_activeIdx = index
+	var _name : String = listTasklist.get_item_text(_activeIdx)
 	ActiveTask = Logbook[_activeIdx]
 	# need to change active task to selection from logbook
 	leTitle.text = ActiveTask["Name"]
 	leBrief.text = ActiveTask["Summary"]
 	optTasktype.select( ActiveTask["Tasktype"] )
+	leXP.text = ActiveTask["RewardXP"] 
+	leCash.text = String(ActiveTask["RewardCash"])
 	teDescription.text = ActiveTask["Description"]
 
 func _on_itemlist_tasklist_empty_clicked(_at_position: Vector2, _mouse_button_index: int) -> void:
@@ -99,6 +137,26 @@ func _on_le_brief_text_submitted(new_text):
 
 func _on_opt_tasktype_item_selected(index):
 	taskType = index
+
+func _on_btn_req_item_pressed():
+	pass # Replace with function body.
+
+func _on_btn_reward_item_pressed():
+	pass # Replace with function body.
+
+func _on_le_xp_text_changed(new_text):
+	taskRewardXP = float(new_text)
+
+func _on_le_xp_text_submitted(new_text):
+	taskRewardXP = float(new_text)
+	ActiveTask["RewardXP"] = taskRewardXP
+
+func _on_le_cash_text_changed(new_text):
+	taskRewardCash = float(new_text)
+
+func _on_le_cash_text_submitted(new_text):
+	taskRewardCash = float(new_text)
+	ActiveTask["RewardCash"] = taskRewardCash
 
 func _on_te_description_text_changed() -> void:
 	taskDescription = teDescription.text
@@ -140,14 +198,18 @@ func load_questbook()->void:
 		_file_mode = FileAccess.WRITE_READ
 	var fIn := FileAccess.open(_book_file, _file_mode)
 	while fIn.get_position() < fIn.get_length():
-	# Read data
-		var vIn = fIn.get_var() as Dictionary
+	# Read data 
+	# if there are multiple root dictionairies the last one will be in memory
+		var vIn = fIn.get_var() as Array
 		Logbook = vIn.duplicate()
+		# copy quests to listitem in interface
+		listTasklist.clear()
 		for _q in Logbook:
-			listTasklist.add_item(Logbook[_q]["Name"] )
+			listTasklist.add_item(_q["Name"])
 
 func save_questbook()->void:
+	# this overwrites the old file every time
 	_file_mode = FileAccess.WRITE
 	var fout := FileAccess.open(_book_file, _file_mode)
-	fout.store_var( Logbook )
+	fout.store_var( Logbook ) # this is binary storage
 	fout.close()

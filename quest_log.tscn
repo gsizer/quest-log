@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cieat0nbn4s6x"]
+[gd_scene load_steps=54 format=3 uid="uid://cieat0nbn4s6x"]
 
 [ext_resource type="Script" path="res://quest_log.gd" id="1_fit5c"]
 [ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="2_r0uvc"]
@@ -9,6 +9,12 @@
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="7_3is1n"]
 [ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="8_vpght"]
 [ext_resource type="Texture2D" uid="uid://g8syg85mt6h3" path="res://addons/markdownlabel/icon.svg" id="9_mywhv"]
+
+[sub_resource type="SystemFont" id="SystemFont_bpkv3"]
+
+[sub_resource type="Theme" id="Theme_smu6b"]
+default_font = SubResource("SystemFont_bpkv3")
+default_font_size = 12
 
 [sub_resource type="Resource" id="Resource_thbv6"]
 resource_local_to_scene = true
@@ -190,6 +196,66 @@ is_underlined = false
 override_font_color = false
 font_color = Color(1, 1, 1, 1)
 
+[sub_resource type="Resource" id="Resource_keo7x"]
+resource_local_to_scene = true
+script = ExtResource("3_xtsqh")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_1gg01"]
+resource_local_to_scene = true
+script = ExtResource("4_brw43")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_7kee3"]
+resource_local_to_scene = true
+script = ExtResource("5_0dbkp")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_g78i4"]
+resource_local_to_scene = true
+script = ExtResource("6_qo422")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_eur6e"]
+resource_local_to_scene = true
+script = ExtResource("7_3is1n")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_6mqqo"]
+resource_local_to_scene = true
+script = ExtResource("8_vpght")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
 [sub_resource type="Resource" id="Resource_orpm7"]
 resource_local_to_scene = true
 script = ExtResource("3_xtsqh")
@@ -310,7 +376,67 @@ is_underlined = false
 override_font_color = false
 font_color = Color(1, 1, 1, 1)
 
-[node name="QuestLog" type="Control" node_paths=PackedStringArray("listTasklist", "leTitle", "leBrief", "optTasktype", "mdDescription", "teDescription")]
+[sub_resource type="Resource" id="Resource_q8wi6"]
+resource_local_to_scene = true
+script = ExtResource("3_xtsqh")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_sih7f"]
+resource_local_to_scene = true
+script = ExtResource("4_brw43")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_lcp23"]
+resource_local_to_scene = true
+script = ExtResource("5_0dbkp")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_tyh3e"]
+resource_local_to_scene = true
+script = ExtResource("6_qo422")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_cpwqa"]
+resource_local_to_scene = true
+script = ExtResource("7_3is1n")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_dme5g"]
+resource_local_to_scene = true
+script = ExtResource("8_vpght")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[node name="QuestLog" type="Control" node_paths=PackedStringArray("listTasklist", "leTitle", "leBrief", "optTasktype", "leXP", "leCash", "mdDescription", "teDescription")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -319,13 +445,16 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource("Theme_smu6b")
 script = ExtResource("1_fit5c")
 listTasklist = NodePath("MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/ScrollContainer/itemlistTasklist")
-leTitle = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle/leTitle")
-leBrief = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief/leBrief")
-optTasktype = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype/optTasktype")
-mdDescription = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/mdDescription")
-teDescription = NodePath("MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription")
+leTitle = NodePath("MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbTitle/leTitle")
+leBrief = NodePath("MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbBrief/leBrief")
+optTasktype = NodePath("MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbTasktype/optTasktype")
+leXP = NodePath("MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbReward/leXP")
+leCash = NodePath("MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbReward/leCash")
+mdDescription = NodePath("MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/vbDescription/HSplitContainer/mdDescription")
+teDescription = NodePath("MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/vbDescription/HSplitContainer/teDescription")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -334,10 +463,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
 
 [node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -437,27 +566,35 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_mode = 0
 allow_reselect = true
 
 [node name="panelDetails" type="Panel" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="vbDetails" type="VBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/panelDetails"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="vbDetails" type="VBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
-[node name="hbTitle" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails"]
+[node name="hbTitle" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="mdTitleLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle"]
+[node name="mdTitleLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbTitle"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 bbcode_enabled = true
@@ -472,15 +609,15 @@ h4 = SubResource("Resource_3jayq")
 h5 = SubResource("Resource_bci6y")
 h6 = SubResource("Resource_0u1xl")
 
-[node name="leTitle" type="LineEdit" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle"]
+[node name="leTitle" type="LineEdit" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbTitle"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="hbBrief" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails"]
+[node name="hbBrief" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="mdBriefLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief"]
+[node name="mdBriefLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbBrief"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 bbcode_enabled = true
@@ -495,15 +632,15 @@ h4 = SubResource("Resource_3jayq")
 h5 = SubResource("Resource_bci6y")
 h6 = SubResource("Resource_0u1xl")
 
-[node name="leBrief" type="LineEdit" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief"]
+[node name="leBrief" type="LineEdit" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbBrief"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="hbTasktype" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails"]
+[node name="hbTasktype" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="mdTasktypeLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype"]
+[node name="mdTasktypeLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbTasktype"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 bbcode_enabled = true
@@ -518,7 +655,7 @@ h4 = SubResource("Resource_tq2eu")
 h5 = SubResource("Resource_rqevx")
 h6 = SubResource("Resource_183a1")
 
-[node name="optTasktype" type="OptionButton" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype"]
+[node name="optTasktype" type="OptionButton" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbTasktype"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -529,14 +666,37 @@ popup/item_1/text = "Relocate"
 popup/item_1/icon = ExtResource("9_mywhv")
 popup/item_1/id = 1
 
-[node name="vbDescription" type="VBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails"]
+[node name="hbRequired" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="btnReqItem" type="Button" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbRequired"]
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 2
+text = "Required Item"
+icon = ExtResource("9_mywhv")
+
+[node name="MarkdownLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbRequired"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+script = ExtResource("2_r0uvc")
+h1 = SubResource("Resource_keo7x")
+h2 = SubResource("Resource_1gg01")
+h3 = SubResource("Resource_7kee3")
+h4 = SubResource("Resource_g78i4")
+h5 = SubResource("Resource_eur6e")
+h6 = SubResource("Resource_6mqqo")
+
+[node name="vbDescription" type="VBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 5
 
-[node name="mdDescLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription"]
+[node name="mdDescLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/vbDescription"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+size_flags_horizontal = 3
 bbcode_enabled = true
 text = "Description"
 scroll_active = false
@@ -549,14 +709,14 @@ h4 = SubResource("Resource_b8aju")
 h5 = SubResource("Resource_f01si")
 h6 = SubResource("Resource_p57w7")
 
-[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription"]
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/vbDescription"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 5
 theme_override_constants/minimum_grab_thickness = 5
 theme_override_constants/autohide = 0
 
-[node name="mdDescription" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer"]
+[node name="mdDescription" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/vbDescription/HSplitContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -576,22 +736,57 @@ h4 = SubResource("Resource_tsd8i")
 h5 = SubResource("Resource_e5wk1")
 h6 = SubResource("Resource_ujp5e")
 
-[node name="teDescription" type="TextEdit" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer"]
+[node name="teDescription" type="TextEdit" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/vbDescription/HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Enter Markdown text here to see it rendered in the preview panel."
 wrap_mode = 1
 
-[node name="hbCmdTask" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails"]
+[node name="hbReward" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails"]
+layout_mode = 2
+
+[node name="btnRewardItem" type="Button" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbReward"]
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 2
+text = "Reward Item"
+icon = ExtResource("9_mywhv")
+
+[node name="MarkdownLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbReward"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+script = ExtResource("2_r0uvc")
+h1 = SubResource("Resource_q8wi6")
+h2 = SubResource("Resource_sih7f")
+h3 = SubResource("Resource_lcp23")
+h4 = SubResource("Resource_tyh3e")
+h5 = SubResource("Resource_cpwqa")
+h6 = SubResource("Resource_dme5g")
+
+[node name="leXP" type="LineEdit" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbReward"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+tooltip_text = "XP"
+placeholder_text = "XP"
+max_length = 5
+
+[node name="leCash" type="LineEdit" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbReward"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+tooltip_text = "Cash"
+placeholder_text = "Cash"
+max_length = 5
+
+[node name="hbCmdTask" type="HBoxContainer" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails"]
 layout_mode = 2
 alignment = 1
 
-[node name="btnTaskUpdate" type="Button" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbCmdTask"]
+[node name="btnTaskUpdate" type="Button" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbCmdTask"]
 custom_minimum_size = Vector2(75, 30)
 layout_mode = 2
 text = "Update"
 
-[node name="btnTaskReset" type="Button" parent="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbCmdTask"]
+[node name="btnTaskReset" type="Button" parent="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbCmdTask"]
 custom_minimum_size = Vector2(75, 30)
 layout_mode = 2
 text = "Reset"
@@ -602,13 +797,19 @@ text = "Reset"
 [connection signal="pressed" from="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/hbCmdTasklist2/btnDelTask" to="." method="_on_btn_del_task_pressed"]
 [connection signal="empty_clicked" from="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/ScrollContainer/itemlistTasklist" to="." method="_on_itemlist_tasklist_empty_clicked"]
 [connection signal="item_selected" from="MarginContainer/HSplitContainer/panelTasklist/MarginContainer/vbTasklist/ScrollContainer/itemlistTasklist" to="." method="_on_itemlist_tasklist_item_selected"]
-[connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle/leTitle" to="." method="_on_le_title_text_changed"]
-[connection signal="text_submitted" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTitle/leTitle" to="." method="_on_le_title_text_submitted"]
-[connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief/leBrief" to="." method="_on_le_brief_text_changed"]
-[connection signal="text_submitted" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbBrief/leBrief" to="." method="_on_le_brief_text_submitted"]
-[connection signal="item_selected" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbTasktype/optTasktype" to="." method="_on_opt_tasktype_item_selected"]
-[connection signal="caret_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_caret_changed"]
-[connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_text_changed"]
-[connection signal="text_set" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_text_set"]
-[connection signal="pressed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbCmdTask/btnTaskUpdate" to="." method="_on_btn_task_update_pressed"]
-[connection signal="pressed" from="MarginContainer/HSplitContainer/panelDetails/vbDetails/hbCmdTask/btnTaskReset" to="." method="_on_btn_task_reset_pressed"]
+[connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbTitle/leTitle" to="." method="_on_le_title_text_changed"]
+[connection signal="text_submitted" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbTitle/leTitle" to="." method="_on_le_title_text_submitted"]
+[connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbBrief/leBrief" to="." method="_on_le_brief_text_changed"]
+[connection signal="text_submitted" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbBrief/leBrief" to="." method="_on_le_brief_text_submitted"]
+[connection signal="item_selected" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbTasktype/optTasktype" to="." method="_on_opt_tasktype_item_selected"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbRequired/btnReqItem" to="." method="_on_btn_req_item_pressed"]
+[connection signal="caret_changed" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_caret_changed"]
+[connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_text_changed"]
+[connection signal="text_set" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/vbDescription/HSplitContainer/teDescription" to="." method="_on_te_description_text_set"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbReward/btnRewardItem" to="." method="_on_btn_reward_item_pressed"]
+[connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbReward/leXP" to="." method="_on_le_xp_text_changed"]
+[connection signal="text_submitted" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbReward/leXP" to="." method="_on_le_xp_text_submitted"]
+[connection signal="text_changed" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbReward/leCash" to="." method="_on_le_cash_text_changed"]
+[connection signal="text_submitted" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbReward/leCash" to="." method="_on_le_cash_text_submitted"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbCmdTask/btnTaskUpdate" to="." method="_on_btn_task_update_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/panelDetails/MarginContainer/vbDetails/hbCmdTask/btnTaskReset" to="." method="_on_btn_task_reset_pressed"]

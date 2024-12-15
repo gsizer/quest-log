@@ -1,79 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmytnb3a1wfok"]
+[gd_scene load_steps=2 format=3 uid="uid://dmytnb3a1wfok"]
 
-[ext_resource type="Script" path="res://object_generator.gd" id="1_w7c3u"]
-[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="2_n218v"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="3_ceng5"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="4_b212n"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="5_fplib"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="6_l7ela"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="7_7hjyg"]
-[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="8_1i26k"]
+[ext_resource type="Script" path="res://ObjGen/obj_gen.gd" id="1_w7c3u"]
 
-[sub_resource type="Resource" id="Resource_ipe33"]
-resource_local_to_scene = true
-script = ExtResource("3_ceng5")
-font_size = 2.285
-is_bold = false
-is_italic = false
-is_underlined = false
-override_font_color = false
-font_color = Color(1, 1, 1, 1)
-
-[sub_resource type="Resource" id="Resource_5pqwj"]
-resource_local_to_scene = true
-script = ExtResource("4_b212n")
-font_size = 1.714
-is_bold = false
-is_italic = false
-is_underlined = false
-override_font_color = false
-font_color = Color(1, 1, 1, 1)
-
-[sub_resource type="Resource" id="Resource_36rj6"]
-resource_local_to_scene = true
-script = ExtResource("5_fplib")
-font_size = 1.428
-is_bold = false
-is_italic = false
-is_underlined = false
-override_font_color = false
-font_color = Color(1, 1, 1, 1)
-
-[sub_resource type="Resource" id="Resource_denqe"]
-resource_local_to_scene = true
-script = ExtResource("6_l7ela")
-font_size = 1.142
-is_bold = false
-is_italic = false
-is_underlined = false
-override_font_color = false
-font_color = Color(1, 1, 1, 1)
-
-[sub_resource type="Resource" id="Resource_ccmyy"]
-resource_local_to_scene = true
-script = ExtResource("7_7hjyg")
-font_size = 1.0
-is_bold = false
-is_italic = false
-is_underlined = false
-override_font_color = false
-font_color = Color(1, 1, 1, 1)
-
-[sub_resource type="Resource" id="Resource_g88ac"]
-resource_local_to_scene = true
-script = ExtResource("8_1i26k")
-font_size = 0.857
-is_bold = false
-is_italic = false
-is_underlined = false
-override_font_color = false
-font_color = Color(1, 1, 1, 1)
-
-[node name="objectGenerator" type="Control" node_paths=PackedStringArray("lineItemName", "menuRarities", "menuCategories", "menuDamageTypes", "mdDescription")]
+[node name="objectGenerator" type="Control" node_paths=PackedStringArray("lineItemName", "menuRarities", "menuCategories", "menuDamageTypes")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -83,7 +18,6 @@ lineItemName = NodePath("PanelContainer/MarginContainer/VBoxContainer/hbItemName
 menuRarities = NodePath("PanelContainer/MarginContainer/VBoxContainer/hbRarity/mbRarity")
 menuCategories = NodePath("PanelContainer/MarginContainer/VBoxContainer/hbCategory/mbCategory")
 menuDamageTypes = NodePath("PanelContainer/MarginContainer/VBoxContainer/hbDamageType/mbDamageType")
-mdDescription = NodePath("PanelContainer/MarginContainer/VBoxContainer/hbDescription/mdDescription")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -163,36 +97,9 @@ size_flags_horizontal = 3
 text = "Select One"
 switch_on_hover = true
 
-[node name="hbDescription" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-alignment = 1
-
-[node name="mdDescription" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/hbDescription"]
-layout_mode = 2
-size_flags_horizontal = 3
-bbcode_enabled = true
-script = ExtResource("2_n218v")
-h1 = SubResource("Resource_ipe33")
-h2 = SubResource("Resource_5pqwj")
-h3 = SubResource("Resource_36rj6")
-h4 = SubResource("Resource_denqe")
-h5 = SubResource("Resource_ccmyy")
-h6 = SubResource("Resource_g88ac")
-
 [node name="hbControls" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
-
-[node name="btnRandom" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/hbControls"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-text = "Random"
-
-[node name="btnReset" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/hbControls"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-text = "Reset"
 
 [node name="btnCopy" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/hbControls"]
 custom_minimum_size = Vector2(90, 0)
@@ -200,6 +107,4 @@ layout_mode = 2
 text = "Copy"
 
 [connection signal="text_changed" from="PanelContainer/MarginContainer/VBoxContainer/hbItemName/leItemName" to="." method="_on_le_item_name_text_changed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/hbControls/btnRandom" to="." method="_on_btn_random_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/hbControls/btnReset" to="." method="_on_btn_reset_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/hbControls/btnCopy" to="." method="_on_btn_copy_pressed"]
