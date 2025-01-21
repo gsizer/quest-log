@@ -114,8 +114,8 @@ func _on_itemlist_tasklist_item_selected(index: int) -> void:
 	leTitle.text = ActiveTask["Name"]
 	leBrief.text = ActiveTask["Summary"]
 	optTasktype.select( ActiveTask["Tasktype"] )
-	leXP.text = ActiveTask["RewardXP"] 
-	leCash.text = String(ActiveTask["RewardCash"])
+	leXP.text = ActiveTask["RewardXP"]
+	leCash.text = ActiveTask["RewardCash"]
 	teDescription.text = ActiveTask["Description"]
 
 func _on_itemlist_tasklist_empty_clicked(_at_position: Vector2, _mouse_button_index: int) -> void:
